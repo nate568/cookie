@@ -1,48 +1,42 @@
 #include <iostream>
+#include "game.hpp"
 
-char board[3][3] = {{' ',' ',' '}{}}
-
-void printBoard(char board[2][2] ){
-  for(int i=0;i<3;i++){
-    for(int j=0;j<3;j++){
-      std::cout << board[i][j];
-    }
-    std::cout << std::endl;
-  }
-  }
-
-int main(){
-  int turn=0;
+int main()
+{
+  Game myGame;
+  int turn = 0;
   bool gameOver = false;
   int rowIn;
   int colIn;
+  bool turnOver = false;
 
+  std::cout << "Welcome to the game!" << std::endl;
 
-  std::cout<< "Welcome to the game!"<< std::endl;
-  while(gameOver==false){
-  printBoard(board);
-  if(turn == 0){
-    std::cout <<"Player 1 turn"<< std::endl;
-  }
-  else{
-    std::cout<<"Player 2 turn" << std::endl;
-  }
-  //do the turn
-  std::cout << "Pick a row: ";
-  std::cin >> rowIn;
-  std::cout << "Pick a Collumn: ";
-  std::cin>> colIn;
-
-if(turn == 0)
+  while(gameOver == false)
   {
-    board[rowIn][colIn] = 'X';
-  }
-  else
-  {
-  board[rowIn][colIn] = 'O';
-  }
-  turn++;
-  turn%=2;
-  }
+    myGame.printBoard();
+    if(turn == 0)
+    {
+      std::cout << "It is Player One's Turn!" << std::endl;
+    }
+    else
+    {
+      std::cout << "It is Player Two's Turn!" << std::endl;
+    }
 
+    while(turnOver == false)
+    {
+      //do the turn
+      std::cout << "Pick a Row: ";
+      std::cin >> rowIn;
+      std::cout << "Pick a Collumn: ";
+      std::cin >> colIn;
+
+      turnOver = myGame.makeMove(turn, rowIn, colIn);
+    }
+    turnOver = false;
+
+    turn++;
+    turn %= 2;
   }
+}
