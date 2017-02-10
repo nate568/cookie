@@ -68,6 +68,33 @@ public:
       return true;
     }
   }
+  bool testForWin()
+{
+  for(int i=0; i<3; i++)
+{
+  if(board[i][0] == board[i][1] && board[i][1] == board[i][2])
+{
+return true;
+}
+}
+for(int i=0; i<3; i++)
+{
+if(board[0][i] == board[0][i] && board[0][i] == board[0][i])
+{
+return true;
+}
+}
+if(board[i][0] == board[i][1] && board[i][1] == board[i][2])
+{
+return true;
+}
+}
+if(board[i][0] == board[i][1] && board[i][1] == board[i][2])
+{
+return true;
+}
+}
 };
+
 
 #endif

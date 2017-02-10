@@ -36,7 +36,17 @@ int main()
     }
     turnOver = false;
 
+    myGame.testForWin();
+
     turn++;
     turn %= 2;
   }
+  if()
+{
+  std::cout << "X's Win!!!" << std::endl;
+}
+else
+{
+  std::cout << "O's Win!!!" <<
+}
 }
